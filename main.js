@@ -4,28 +4,26 @@ var images = [
     { caption: "curlyGram", url: "https://disneynerd.files.wordpress.com/2015/02/enchantedtikihipster_final-01.jpg" }
 ];
 
-var container = document.querySelector('.image-list');
+var container = $('.image-list');
 
 var currentImageIndex;
 
 images.forEach(function(image, i) {
-    var newImage = document.createElement('img');
-    newImage.setAttribute('src', image.url);
+    var newImage = $('<img>');
+    newImage.attr('src', image.url);
 
-    var caption = document.createElement('p');
-    caption.textContent = image.caption;
+    var caption = $('<p>', { text: image.caption });
 
-    var listItem = document.createElement('li');
-    listItem.classList.add('hipster-item', 'test');
+    var listItem = $('<li>');
+    listItem.addClass('hipster-item');
 
-    listItem.appendChild(newImage);
-    listItem.appendChild(caption);
+    listItem.append(newImage);
+    listItem.append(caption);
 
     var clickHandler = function(event) {
         currentImageIndex = i;
-        openLightbox(image);
     };
-    listItem.addEventListener('click', clickHandler);
+    listItem.on('click', clickHandler);
 
-    container.appendChild(listItem);
+    container.append(listItem);
 });

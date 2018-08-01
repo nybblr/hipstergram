@@ -16,7 +16,6 @@ images.forEach(function(image, i) {
     caption.textContent = image.caption;
 
     var listItem = document.createElement('li');
-
     listItem.classList.add('hipster-item');
 
     listItem.appendChild(newImage);
